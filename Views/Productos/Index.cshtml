@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<MTG.Models.Productos>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Nuevo Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.detalle)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detalle)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductosId">Modificar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductosId">Detalles</a> |
+                    <a onclick="DeleteConfirm(@item.ProductosId)">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+
+    function DeleteConfirm(id) {
+        if (confirm("Confirma que desea borrar el producto ?")) {
+            location.href = '/Productos/Delete/' + id
+        }
+    }
+
+
+
+
+</script>

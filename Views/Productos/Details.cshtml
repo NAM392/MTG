@@ -1,0 +1,50 @@
+﻿@model MTG.Models.Productos
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2>Detalle</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.detalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sub_descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad) 
+
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.detalle)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.sub_descripcion)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.cantidad)
+
+            </th>
+
+
+            <th></th>
+        </tr>
+    </tbody>
+
+
+</table>
+
+
+

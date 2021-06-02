@@ -1,0 +1,89 @@
+﻿@model MTG.Models.Productos
+
+@{
+    ViewData["Title"] = "Nuevo Producto";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm("JustCreate", "Productos", FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.detalle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sub_descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidad)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.detalle,
+                         new
+                         {
+                             @class = "form-control",
+                             @placeholder = "Ingrese Nombre",
+                             @requried = "required"
+                         }
+
+                    )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.sub_descripcion,
+                         new
+                         {
+                             @class = "form-control",
+                             @placeholder = "Descripcion",
+                             @requried = "required"
+                         }
+
+                    )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+
+                </th>
+
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.cantidad,
+                         new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Cantidad",
+                                 @requried = "required"
+                             }
+
+                        )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+                </th>
+     
+               
+            </tr>
+        </tbody>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Create" />
+            </td>
+            <td></td>
+        </tr>
+
+    </table>
+
+}
