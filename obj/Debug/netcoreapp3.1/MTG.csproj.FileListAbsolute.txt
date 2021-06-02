@@ -50,3 +50,10 @@ Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\MTG.csprojAssemblyReference.ca
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Productos\Details.cshtml.g.cs
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Productos\Index.cshtml.g.cs
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Productos\Create.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Productos\Edit.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Create.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Details.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Edit.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Index.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Movimiento\Index.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Movimiento\Create.cshtml.g.cs

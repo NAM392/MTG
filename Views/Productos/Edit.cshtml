@@ -1,12 +1,13 @@
-﻿@model MTG.Models.Productos
+﻿
+@model MTG.Models.Productos
 
 @{
-    ViewData["Title"] = "Nuevo Producto";
+    ViewData["Title"] = "Modifico";
 }
 
-<h2>Nuevo Producto</h2>
+<h2>Modificacion</h2>
 
-@using (Html.BeginForm("JustCreate", "Productos", FormMethod.Post))
+@using (Html.BeginForm("Update", "Productos", FormMethod.Post))
 {
     <table class="table">
         <thead>
@@ -17,9 +18,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.sub_descripcion)
                 </th>
+
                 <th>
                     @Html.DisplayNameFor(model => model.cantidad)
+
                 </th>
+
 
                 <th></th>
             </tr>
@@ -30,60 +34,63 @@
                 <th>
                     <div class="input-group">
                         @Html.TextBoxFor(model => model.detalle,
-                         new
-                         {
-                             @class = "form-control",
-                             @placeholder = "Ingrese Nombre",
-                             @requried = "required"
-                         }
+                            new
+                            {
+                                @class = "form-control",
+                                @placeholder = "Detalle",
+                                @requried = "required"
+                            }
 
-                    )
+                            )
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
                     </div>
                 </th>
                 <th>
                     <div class="input-group">
                         @Html.TextBoxFor(model => model.sub_descripcion,
-                         new
-                         {
-                             @class = "form-control",
-                             @placeholder = "Descripcion",
-                             @requried = "required"
-                         }
+                            new
+                            {
+                                @class = "form-control",
+                                @placeholder = "Descripcion",
+                                @requried = "required"
+                            }
 
-                    )
+                            )
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
                     </div>
 
-                </th>
 
+
+                </th>
                 <th>
                     <div class="input-group">
                         @Html.TextBoxFor(model => model.cantidad,
-                         new
-                             {
-                                 @class = "form-control",
-                                 @placeholder = "Cantidad",
-                                 @requried = "required"
-                             }
+                            new
+                            {
+                                @class = "form-control",
+                                @placeholder = "Cantidad",
+                                @requried = "required"
+                            }
 
-                        )
+                            )
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
                     </div>
+
+
+
                 </th>
-     
-               
+                <th></th>
             </tr>
         </tbody>
 
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Nuevo Producto" />
+                <input type="submit" value="Modificar" />
             </td>
             <td></td>
         </tr>
 
     </table>
-
+    @Html.HiddenFor(model => model.ProductosId)
 }

@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<MTG.Models.Deposito>
+
+@{
+    ViewData["Title"] = "Deposito";
+}
+
+<h2>Lista de Depositos</h2>
+
+<p>
+    <a asp-action="Create">Nuevo Deposito</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DepositoId">Modificar</a> |
+                    <a asp-action="Details" asp-route-id="@item.DepositoId">Detalles</a> |
+                    <a onclick="DeleteConfirm(@item.DepositoId)">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+
+    function DeleteConfirm(id) {
+        if (confirm("Confirma que desea borrar el deposito ?")) {
+            location.href = '/Deposito/Delete/' + id
+        }
+    }
+
+
+
+
+</script>

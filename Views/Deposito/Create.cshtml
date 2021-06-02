@@ -1,25 +1,23 @@
-﻿@model MTG.Models.Productos
+﻿@model MTG.Models.Deposito
 
 @{
-    ViewData["Title"] = "Nuevo Producto";
+    ViewData["Title"] = "Nuevo Deposito";
 }
 
-<h2>Nuevo Producto</h2>
+<h2>Nuevo Deposito</h2>
 
-@using (Html.BeginForm("JustCreate", "Productos", FormMethod.Post))
+@using (Html.BeginForm("JustCreate", "Deposito", FormMethod.Post))
 {
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.detalle)
+                    @Html.DisplayNameFor(model => model.DepositoId)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.sub_descripcion)
+                    @Html.DisplayNameFor(model => model.Nombre)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.cantidad)
-                </th>
+   
 
                 <th></th>
             </tr>
@@ -29,7 +27,7 @@
             <tr>
                 <th>
                     <div class="input-group">
-                        @Html.TextBoxFor(model => model.detalle,
+                        @Html.TextBoxFor(model => model.DepositoId,
                          new
                          {
                              @class = "form-control",
@@ -43,7 +41,7 @@
                 </th>
                 <th>
                     <div class="input-group">
-                        @Html.TextBoxFor(model => model.sub_descripcion,
+                        @Html.TextBoxFor(model => model.Nombre,
                          new
                          {
                              @class = "form-control",
@@ -57,29 +55,13 @@
 
                 </th>
 
-                <th>
-                    <div class="input-group">
-                        @Html.TextBoxFor(model => model.cantidad,
-                         new
-                             {
-                                 @class = "form-control",
-                                 @placeholder = "Cantidad",
-                                 @requried = "required"
-                             }
-
-                        )
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
-                    </div>
-                </th>
-     
-               
             </tr>
         </tbody>
 
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Nuevo Producto" />
+                <input type="submit" value="Nuevo Deposito" />
             </td>
             <td></td>
         </tr>

@@ -1,0 +1,40 @@
+﻿@model MTG.Models.Deposito
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2>Detalle</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepositoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.DepositoId)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Nombre)
+            </th>
+
+            <th></th>
+        </tr>
+    </tbody>
+
+
+</table>
+
+
+

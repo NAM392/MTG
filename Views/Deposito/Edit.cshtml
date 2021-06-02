@@ -1,0 +1,73 @@
+﻿
+@model MTG.Models.Deposito
+
+@{
+    ViewData["Title"] = "Modifico";
+}
+
+<h2>Modificacion</h2>
+
+@using (Html.BeginForm("Update", "Deposito", FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepositoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.DepositoId,
+                            new
+                            {
+                                @class = "form-control",
+                                @placeholder = "Ingrese ID ",
+                                @requried = "required"
+                            }
+
+                            )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Nombre,
+                            new
+                            {
+                                @class = "form-control",
+                                @placeholder = "Ingrese Nombre",
+                                @requried = "required"
+                            }
+
+                            )
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                    </div>
+
+
+
+                </th>
+                <th></th>
+            </tr>
+        </tbody>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Modificar" />
+            </td>
+            <td></td>
+        </tr>
+
+    </table>
+    @Html.HiddenFor(model => model.DepositoId)
+}

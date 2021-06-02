@@ -1,0 +1,98 @@
+﻿
+
+@model MTG.DTO.MoveDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm("JustCreate", "Movimiento", FormMethod.Post))
+{
+<table class="table">
+    <thead>
+
+        <tr>
+
+            <th>
+                <p>Producto</p>
+            </th>
+            <th>
+                <p>Desde</p>
+            </th>
+            <th>
+                <p>Hasta</p>
+            </th>
+            <th>
+                <p>Fecha</p>
+            </th>
+
+
+            <th></th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <tr>
+            <th>
+                @Html.DropDownListFor(model => model._Depositos.,
+                 new SelectList(Model.Professors, "professorId", "LastName", Model.Course_Complete.professorId),
+                 "Select professor")
+
+
+            </th>
+            <th>
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.Course_Complete.maximum_quantity_students,
+     new
+     {
+         @class = "form-control",
+         @placeholder = "Enter Name",
+         @requried = "required"
+     }
+
+)
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                </div>
+
+
+
+            </th>
+            <th>
+                @Html.DropDownListFor(model => model.Course_Complete.professorId,
+                 new SelectList(Model.Professors, "professorId", "LastName", Model.Course_Complete.professorId),
+                 "Select professor")
+
+
+            </th>
+            <th>
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.Course_Complete.Credits,
+     new
+     {
+         @class = "form-control",
+         @placeholder = "Enter Name",
+         @requried = "required"
+     }
+
+)
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                </div>
+            </th>
+            <th></th>
+        </tr>
+    </tbody>
+
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" value="Create" />
+        </td>
+        <td></td>
+    </tr>
+
+</table>
+
+}

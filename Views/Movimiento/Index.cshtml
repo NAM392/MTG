@@ -1,0 +1,84 @@
+﻿
+@model MTG.DTO.MoveDTO
+
+@{
+    ViewData["Title"] = "Movimientos";
+}
+
+<h2>Lista de Movimientos</h2>
+
+<p>
+    <a asp-action="Create">Nuevo Movimiento de Mercaderia</a>
+</p>
+<table class="table">
+    <thead>
+
+        <tr>
+
+            <th>
+                <p>Producto</p>
+            </th>
+            <th>
+                <p>Desde</p>
+            </th>
+            <th>
+                <p>Hasta</p>
+            </th>
+            <th>
+                <p>Fecha</p>
+            </th>
+
+
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var depo in Model._Depositos)
+        {
+            @foreach (var prod in Model._Productos)
+            {
+
+                @foreach (var mov in Model._Movimiento)
+                {
+
+                <tr>
+                    @if (prod.ProductosId == mov.ProductosId)
+                    {
+                        @if (depo.DepositoId == mov.Desde_depo)
+                        {
+
+                            <td>
+                                @Html.DisplayFor(modelItem => prod.detalle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => depo.Nombre)
+                            </td>
+                            @foreach(var hasta in Model._Depositos)
+                                {
+                                    if(hasta.DepositoId == mov.Hasta_depo)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => hasta.Nombre)
+                                        </td>                                        
+                                    }
+                                }
+                            <td>
+                                @Html.DisplayFor(modelItem => mov.fecha_hora)
+                            </td>
+
+
+                         }
+                
+
+                      }
+
+                </tr>
+
+                }
+
+            }
+        }
+    </tbody>
+</table>
+
