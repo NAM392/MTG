@@ -17,8 +17,9 @@ namespace MTG.Models
         public DateTime fecha_hora { get; set; }
         public int Cantidad { get; set; }
 
+        
         public Deposito deposito { get; set; }
         public Productos productos { get; set; }
-
+        
     }
 }

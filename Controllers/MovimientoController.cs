@@ -80,6 +80,7 @@ namespace MTG.Controllers
                     if (st.ProductosId == _movi.UnMovimiento.ProductosId)
                     {
                         //agrego la cantidad de producto
+                        flag = 0;
                         st.Cantidad = st.Cantidad + _movi.UnMovimiento.Cantidad;
                         return Redirect("/Home/Index");
                     }
@@ -99,7 +100,14 @@ namespace MTG.Controllers
                 NuevoStock.Cantidad = _movi.UnMovimiento.Cantidad;
                 NuevoStock.ProductosId = _movi.UnMovimiento.ProductosId;
                 NuevoStock.fecha_hora = DateTime.Now;
-
+                //resto el viejo stock
+                foreach(var stc in stock)
+                {
+                    if(stc.DepositoId == _movi.UnMovimiento.Desde_depo)
+                    {
+                        stc.Cantidad = stc.Cantidad - _movi.UnMovimiento.Cantidad;
+                    }
+                }
                 try
                 {
                     if (ModelState.IsValid)
