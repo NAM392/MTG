@@ -1,6 +1,6 @@
 ﻿
 
-@model MTG.DTO.MoveDTO
+@model MTG.DTO.NewMoveDTO
 
 @{
     ViewData["Title"] = "Create";
@@ -12,76 +12,64 @@
 {
 <table class="table">
     <thead>
-
         <tr>
-
             <th>
-                <p>Producto</p>
+                @Html.DisplayNameFor(model => model.UnMovimiento.ProductosId)
             </th>
             <th>
-                <p>Desde</p>
+                @Html.DisplayNameFor(model => model.UnMovimiento.Desde_depo)
             </th>
             <th>
-                <p>Hasta</p>
+                @Html.DisplayNameFor(model => model.UnMovimiento.Hasta_depo)
             </th>
             <th>
-                <p>Fecha</p>
+                @Html.DisplayNameFor(model => model.UnMovimiento.Id_realizo)
             </th>
-
-
+            <th>
+                @Html.DisplayNameFor(model => model.UnMovimiento.Cantidad)
+            </th>
             <th></th>
         </tr>
-
     </thead>
 
     <tbody>
         <tr>
             <th>
-                @Html.DropDownListFor(model => model._Depositos.,
-                 new SelectList(Model.Professors, "professorId", "LastName", Model.Course_Complete.professorId),
-                 "Select professor")
-
-
+                @Html.DropDownListFor(model => model.UnMovimiento.ProductosId,
+                new SelectList(Model._Productos, "ProductosId", "detalle", Model.UnMovimiento.ProductosId),
+                "Elige Producto")
             </th>
             <th>
-                <div class="input-group">
-                    @Html.TextBoxFor(model => model.Course_Complete.maximum_quantity_students,
-     new
-     {
-         @class = "form-control",
-         @placeholder = "Enter Name",
-         @requried = "required"
-     }
-
-)
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
-                </div>
-
-
-
+                @Html.DropDownListFor(model => model.UnMovimiento.Desde_depo,
+                 new SelectList(Model._Depositos, "DepositoId", "Nombre", Model.UnMovimiento.Desde_depo),
+                 "Elige Deposito Origen")
             </th>
             <th>
-                @Html.DropDownListFor(model => model.Course_Complete.professorId,
-                 new SelectList(Model.Professors, "professorId", "LastName", Model.Course_Complete.professorId),
-                 "Select professor")
-
-
+                @Html.DropDownListFor(model => model.UnMovimiento.Hasta_depo,
+                 new SelectList(Model._Depositos, "DepositoId", "Nombre", Model.UnMovimiento.Hasta_depo),
+                 "Elige Deposito Destino")
             </th>
             <th>
-                <div class="input-group">
-                    @Html.TextBoxFor(model => model.Course_Complete.Credits,
-     new
-     {
-         @class = "form-control",
-         @placeholder = "Enter Name",
-         @requried = "required"
-     }
-
-)
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
-                </div>
+                @Html.DropDownListFor(model => model.UnMovimiento.Id_realizo,
+                 new SelectList(Model._Usuarios, "LoginId", "usuario", Model.UnMovimiento.Id_realizo),
+                 "Elige Usuario que Realizo el cambio")
             </th>
             <th></th>
+
+            <th>
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.UnMovimiento.Cantidad,
+            new
+            {
+            @class = "form-control",
+            @placeholder = "Ingrese Cantidad",
+            @requried = "required"
+            }
+
+            )
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">  </span></span>
+                </div>
+            </th>
         </tr>
     </tbody>
 

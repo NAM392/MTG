@@ -62,9 +62,9 @@ namespace MTG.Data
 
             var movimiento = new Movimiento[]
                 {
-                    new Movimiento{ProductosId= 32, Desde_depo = 23 , Hasta_depo = 88 , fecha_hora = DateTime.Now , Id_realizo =1  },
-                    new Movimiento{ProductosId = 42,Desde_depo = 23, Hasta_depo = 88, fecha_hora = DateTime.Now , Id_realizo =2 },
-                    new Movimiento{ProductosId = 52 , Desde_depo = 88, Hasta_depo = 23, fecha_hora = DateTime.Now , Id_realizo =1 },
+                    new Movimiento{ProductosId= 32, Desde_depo = 23 , Hasta_depo = 88 , fecha_hora = DateTime.Now , Id_realizo =1 ,Cantidad = 5432  },
+                    new Movimiento{ProductosId = 42,Desde_depo = 23, Hasta_depo = 88, fecha_hora = DateTime.Now , Id_realizo =2, Cantidad = 2345  },
+                    new Movimiento{ProductosId = 52 , Desde_depo = 88, Hasta_depo = 23, fecha_hora = DateTime.Now , Id_realizo =1, Cantidad = 6667 },
                 };
 
             foreach (Movimiento e in movimiento)
@@ -76,11 +76,11 @@ namespace MTG.Data
             
             var stock = new Stock[]
              {
-                    new Stock{StockId = 1, DepositoId=23,ProductosId=12,fecha_hora = DateTime.Now },
-                    new Stock{StockId = 2,DepositoId=88,ProductosId=22,fecha_hora = DateTime.Now },
-                    new Stock{StockId = 3,DepositoId=23,ProductosId=32,fecha_hora = DateTime.Now },
-                    new Stock{StockId = 4,DepositoId=88,ProductosId=42,fecha_hora = DateTime.Now },
-                    new Stock{StockId = 5,DepositoId=23,ProductosId=52,fecha_hora = DateTime.Now },
+                    new Stock{StockId = 1, DepositoId=23,ProductosId=12,fecha_hora = DateTime.Now, Cantidad = 1234 },
+                    new Stock{StockId = 2,DepositoId=88,ProductosId=22,fecha_hora = DateTime.Now, Cantidad = 4321  },
+                    new Stock{StockId = 3,DepositoId=23,ProductosId=52,fecha_hora = DateTime.Now, Cantidad = 6667 },
+                    new Stock{StockId = 4,DepositoId=88,ProductosId=32,fecha_hora = DateTime.Now, Cantidad = 5432},
+                    new Stock{StockId = 5,DepositoId=88,ProductosId=42,fecha_hora = DateTime.Now, Cantidad = 2345 },
 
             };
             foreach (Stock c in stock)

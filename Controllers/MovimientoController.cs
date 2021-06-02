@@ -36,24 +36,29 @@ namespace MTG.Controllers
             var depositos = _context.deposito.ToList();
             var productos = _context.productos.ToList();
             var movimientos = _context.movimiento.ToList();
+            var usuarios = _context.login.ToList();
 
-            var DTO = new MoveDTO();
+            var DTO = new NewMoveDTO();
             DTO._Depositos = depositos;
-            DTO._Movimiento = movimientos;
             DTO._Productos = productos;
+            DTO._Usuarios = usuarios;
+            DTO.UnMovimiento = new Movimiento();
+
             return View(DTO);
         }
 
-        public async Task<IActionResult> JustCreate(Movimiento _movi)
+        public async Task<IActionResult> JustCreate(NewMoveDTO _movi)
         {
+            //hora actual
+            _movi.UnMovimiento.fecha_hora = DateTime.Now;
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Add(_movi);
+                    _context.Add(_movi.UnMovimiento);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    
                 }
             }
             catch (DbUpdateException /* ex */)
@@ -63,15 +68,59 @@ namespace MTG.Controllers
                     "pruebe de nuevo, si su problema persiste " +
                     "llame al administrador del sistema.");
             }
+
+            var stock = _context.stock.ToList();
+            int flag = 0;
+            //recorro el stock
+            foreach (var st in stock)
+            {       //si estoy en un deposito
+                if (st.DepositoId == _movi.UnMovimiento.Hasta_depo)
+                {
+                    //si ya tengo el producto
+                    if (st.ProductosId == _movi.UnMovimiento.ProductosId)
+                    {
+                        //agrego la cantidad de producto
+                        st.Cantidad = st.Cantidad + _movi.UnMovimiento.Cantidad;
+                        return Redirect("/Home/Index");
+                    }
+                    else
+                    {
+                        //si no tengo el producto en el deposito
+                        flag = 1;
+                    }
+
+                }
+            }
+            if(flag == 1)
+            {
+                //Agrego el producto al deposito
+                var NuevoStock = new Stock();
+                NuevoStock.DepositoId = _movi.UnMovimiento.Hasta_depo;
+                NuevoStock.Cantidad = _movi.UnMovimiento.Cantidad;
+                NuevoStock.ProductosId = _movi.UnMovimiento.ProductosId;
+                NuevoStock.fecha_hora = DateTime.Now;
+
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        _context.Add(NuevoStock);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                }
+                catch (DbUpdateException /* ex */)
+                {
+
+                    ModelState.AddModelError("", "No se puede guardar cambios. " +
+                        "pruebe de nuevo, si su problema persiste " +
+                        "llame al administrador del sistema.");
+                }
+                return Redirect("/Home/Index");
+            }
             return Redirect("/Home/Index");
         }
 
     }
-
-
-
-
-
-
-
 }
+

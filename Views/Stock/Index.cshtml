@@ -1,0 +1,78 @@
+﻿
+@model MTG.DTO.StockDTO
+
+@{
+    ViewData["Title"] = "Stock";
+}
+
+<h2>Vista de Stock</h2>
+
+<p>
+    <a asp-action="Create">Agregar Stock</a>
+</p>
+<table class="table">
+    <thead>
+
+        <tr>
+
+            <th>
+                <p>Deposito</p>
+            </th>
+            <th>
+                <p>Producto</p>
+            </th>
+            <th>
+                <p>Cantidad</p>
+            </th>
+            <th>
+                <p>Fecha</p>
+            </th>
+
+
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var depo in Model._Depositos)
+        {
+            @foreach (var prod in Model._Productos)
+            {
+
+                @foreach (var st in Model._Stock)
+                {
+
+        <tr>
+            @if (prod.ProductosId == st.ProductosId)
+            {
+                @if (depo.DepositoId == st.DepositoId)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => depo.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => prod.detalle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => st.Cantidad)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => st.fecha_hora)
+                    </td>
+
+
+                }
+
+
+            }
+
+        </tr>
+
+                }
+
+            }
+        }
+    </tbody>
+</table>
+

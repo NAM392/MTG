@@ -57,3 +57,4 @@ Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Edit.csht
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Deposito\Index.cshtml.g.cs
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Movimiento\Index.cshtml.g.cs
 Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Movimiento\Create.cshtml.g.cs
+Z:\Proyectos\Montagne\MTG\obj\Debug\netcoreapp3.1\Razor\Views\Stock\Index.cshtml.g.cs
