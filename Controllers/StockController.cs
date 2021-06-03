@@ -83,7 +83,10 @@ namespace MTG.Controllers
                     {
                         _context.Add(_stc.UnStock);
                         await _context.SaveChangesAsync();
-                        return RedirectToAction(nameof(Index));
+                        _context.Entry(stock).State = EntityState.Detached;
+                        return RedirectToAction(nameof(Index));               
+                        
+                        
                     }
                 }
                 catch (DbUpdateException /* ex */)

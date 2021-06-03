@@ -89,7 +89,6 @@ namespace MTG.Controllers
                         //si no tengo el producto en el deposito
                         flag = 1;
                     }
-
                 }
             }
             if(flag == 1)
@@ -100,8 +99,10 @@ namespace MTG.Controllers
                 NuevoStock.Cantidad = _movi.UnMovimiento.Cantidad;
                 NuevoStock.ProductosId = _movi.UnMovimiento.ProductosId;
                 NuevoStock.fecha_hora = DateTime.Now;
+                
+
                 //resto el viejo stock
-                foreach(var stc in stock)
+                foreach (var stc in stock)
                 {
                     if(stc.DepositoId == _movi.UnMovimiento.Desde_depo)
                     {
@@ -114,6 +115,7 @@ namespace MTG.Controllers
                     {
                         _context.Add(NuevoStock);
                         await _context.SaveChangesAsync();
+                        _context.Entry(stock).State = EntityState.Detached; 
                         return RedirectToAction(nameof(Index));
                     }
                 }
